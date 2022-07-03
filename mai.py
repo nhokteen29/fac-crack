@@ -68,11 +68,11 @@ def login():
 			tokenku.append(token)
 			try:
 				sy = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+tokenku[0], cookies={'cookie':kukis})
-				sy2 = json.loads(sy.text)['Tên']
+				sy2 = json.loads(sy.text)['login']
 				sy3 = json.loads(sy.text)['id']
 				menu(sy2,sy3)
 			except KeyError:
-				login_lagi334()
+				login_lagi()
 			except requests.exceptions.ConnectionError:
 				banner()
 				li = '# VẤN ĐỀ KẾT NỐI INTERNET, KIỂM TRA VÀ THỬ LẠI'
